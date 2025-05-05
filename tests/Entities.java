@@ -1,8 +1,7 @@
 import entities.BorneRecharge;
 import entities.LieuRecharge;
-import entities.Reservation;
 
-public class Main {
+public class Entities {
     public static void main(String[] args) {
         LieuRecharge monLieu = new LieuRecharge();
         BorneRecharge maBorne1 = new BorneRecharge();
@@ -18,6 +17,7 @@ public class Main {
         monLieu.deleteBorne(maBorne2);
 
         System.out.println(monLieu.getBornes());
-        
+
+
     }
 }
