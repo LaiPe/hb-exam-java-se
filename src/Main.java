@@ -2,19 +2,25 @@ import entities.*;
 import services.Authentification;
 import ui.CLI;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         // Mémoire temp vu que pas de bdd
         List<Utilisateur> utilisateurs = new ArrayList<>();
         List<LieuRecharge> lieuRecharges = new ArrayList<>();
-        BorneRecharge b1 = new BorneRecharge();
         List<Reservation> reservations = new ArrayList<>();
 
         // Seeding
+        Utilisateur u1 = new Utilisateur();
+        u1.setNom("John");
+        u1.setPrenom("Doe");
+        u1.setEstValide(true);
+        u1.setMdp("aa");
+        u1.setEmail("emaildefou@djoufara.com");
+        utilisateurs.add(u1);
+
+        BorneRecharge b1 = new BorneRecharge();
         b1.setId(1);
         b1.setEtat(EtatBorne.DISPONIBLE);
         b1.setTarifHoraire(1.2);
@@ -26,10 +32,29 @@ public class Main {
 
         LieuRecharge l1 = new LieuRecharge();
         l1.setId(1);
+        l1.setNom("Lieu de fou malade");
+        l1.setAdresse("5 rue du dev");
         l1.addBorne(b1);
         l1.addBorne(b2);
 
+        Reservation r1 = new Reservation();
+        r1.setId(1);
+        r1.setBorne(b1);
+        r1.setStatut(StatutReservation.VALIDEE);
+        r1.setUtilisateur(u1);
+        r1.setDateDebut(new Date(2025, Calendar.APRIL,15,10,15));
+        r1.setDateFin(new Date(2025, Calendar.APRIL,15,11,45));
 
+        Reservation r2 = new Reservation();
+        r2.setId(2);
+        r2.setBorne(b2);
+        r2.setStatut(StatutReservation.VALIDEE);
+        r2.setUtilisateur(u1);
+        r2.setDateDebut(new Date(2025, Calendar.APRIL,15,14,30));
+        r2.setDateFin(new Date(2025, Calendar.APRIL,15,15,45));
+
+        reservations.add(r1);
+        reservations.add(r2);
 
         // Utilisateur couramment connecté (simulacre de sessioning)
         Utilisateur session = null;

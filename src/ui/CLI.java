@@ -60,7 +60,7 @@ public class CLI {
     }
 
     public void input(BorneRecharge borne) {
-        borne.etat = EtatBorne.DISPONIBLE;
+        //borne.etat = EtatBorne.DISPONIBLE;
 
         System.out.println("Tarif horaire de la borne : ");
         borne.setTarifHoraire(Float.parseFloat(scanner.nextLine()));

@@ -1,9 +1,9 @@
 package entities;
 
 public class BorneRecharge {
-    public int id;
-    public EtatBorne etat;
-    public double tarifHoraire;
+    private int id;
+    private EtatBorne etat;
+    private double tarifHoraire;
 
     public int getId() {
         return id;
