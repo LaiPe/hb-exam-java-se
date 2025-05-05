@@ -3,7 +3,7 @@ package entities;
 public class BorneRecharge {
     public int id;
     public EtatBorne etat;
-    public float tarifHoraire;
+    public double tarifHoraire;
 
     public int getId() {
         return id;
@@ -19,10 +19,10 @@ public class BorneRecharge {
         this.etat = etat;
     }
 
-    public float getTarifHoraire() {
+    public double getTarifHoraire() {
         return tarifHoraire;
     }
-    public void setTarifHoraire(float tarifHoraire) {
+    public void setTarifHoraire(double tarifHoraire) {
         this.tarifHoraire = tarifHoraire;
     }
 
