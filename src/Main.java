@@ -109,6 +109,7 @@ public class Main {
                             }
                         }
                     } while (!input.equals("0"));
+                    input = "";
                 }
                 default -> {
                     System.out.println("Veuillez rentrez un choix valide !");
