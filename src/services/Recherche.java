@@ -1,9 +1,7 @@
 package services;
 
-import entities.BorneRecharge;
-import entities.EtatBorne;
+import entities.*;
 import entities.Reservation;
-import entities.StatutReservation;
 import interfaces.BorneService;
 
 import java.util.ArrayList;
@@ -11,14 +9,31 @@ import java.util.Date;
 import java.util.List;
 
 public class Recherche implements BorneService {
-    /**
-     * @param bornesExistantes
-     * @param debut
-     * @param fin
-     * @return
-     */
+    private List<BorneRecharge> bornesExistantes;
+    private List<Reservation> reservationsExistantes;
+    private Date debut;
+    private Date fin;
+
+    public void setBornesExistantes(List<LieuRecharge> lieux) {
+        bornesExistantes = new ArrayList<>();
+        for (LieuRecharge lieu : lieux) {
+            bornesExistantes.addAll(lieu.getBornes());
+        }
+    }
+
+    public void setReservationsExistantes(List<Reservation> reservationsExistantes) {
+        this.reservationsExistantes = reservationsExistantes;
+    }
+
+    public void setDateDebut(Date debut) {
+        this.debut = debut;
+    }
+    public void setDateFin(Date fin) {
+        this.fin = fin;
+    }
+
     @Override
-    public List<BorneRecharge> rechercher(List<BorneRecharge> bornesExistantes, List<Reservation> reservationsExistantes, Date debut, Date fin) {
+    public List<BorneRecharge> rechercher() {
         if (bornesExistantes == null || debut == null || fin == null) {
             throw new IllegalArgumentException("Les arguments ne peuvent pas être null");
         }

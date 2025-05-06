@@ -7,5 +7,5 @@ import java.util.Date;
 import java.util.List;
 
 public interface BorneService {
-    public List<BorneRecharge> rechercher(List<BorneRecharge> bornesExistantes, List<Reservation> reservationsExistantes, Date debut, Date fin);
+    public List<BorneRecharge> rechercher();
 }
